@@ -1,4 +1,4 @@
-package filmfinder;
+package Logic;
 
 /*
  * @autores Cinefilos de EDA
