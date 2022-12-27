@@ -22,7 +22,7 @@
 DROP TABLE IF EXISTS `pelicula`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pelicula` (
+CREATE TABLE pelicula (
   `idPelicula` int NOT NULL,
   `nombrePelicula` varchar(2000) DEFAULT NULL,
   `Estreno` varchar(4) DEFAULT NULL,
