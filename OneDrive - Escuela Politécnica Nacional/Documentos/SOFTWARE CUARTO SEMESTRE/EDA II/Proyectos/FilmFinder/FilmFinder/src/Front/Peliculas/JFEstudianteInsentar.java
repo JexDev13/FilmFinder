@@ -10,7 +10,7 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
     private int y;
     Interaccion atributos = new Interaccion();
     private String SQL;
-    private String tablaInsertar="pelicula";
+    private String tablaInsertar="pelicula";//tabla a la q se hace referencia
     public JFEstudianteInsentar() {
         initComponents();
         setLocationRelativeTo(this);
