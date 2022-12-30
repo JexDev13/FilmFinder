@@ -307,6 +307,18 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
     }//GEN-LAST:event_jBCancelarMouseExited
 
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
+        
+    }//GEN-LAST:event_jBCancelarActionPerformed
+
+    private void jBRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBRegistrarMouseEntered
+        this.jBRegistrar.setText("REGISTRAR");
+    }//GEN-LAST:event_jBRegistrarMouseEntered
+
+    private void jBRegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBRegistrarMouseExited
+        this.jBRegistrar.setText("registrar");
+    }//GEN-LAST:event_jBRegistrarMouseExited
+
+    private void jBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistrarActionPerformed
         String nombre= jTFNombre.getText();
         String apellido= jTFApellido.getText();
         String sector= jTFSector.getText();
@@ -332,18 +344,6 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
                 
             }    
         }
-    }//GEN-LAST:event_jBCancelarActionPerformed
-
-    private void jBRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBRegistrarMouseEntered
-        this.jBRegistrar.setText("REGISTRAR");
-    }//GEN-LAST:event_jBRegistrarMouseEntered
-
-    private void jBRegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBRegistrarMouseExited
-        this.jBRegistrar.setText("registrar");
-    }//GEN-LAST:event_jBRegistrarMouseExited
-
-    private void jBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistrarActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jBRegistrarActionPerformed
 
     private void jTFDirectorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDirectorFocusLost
