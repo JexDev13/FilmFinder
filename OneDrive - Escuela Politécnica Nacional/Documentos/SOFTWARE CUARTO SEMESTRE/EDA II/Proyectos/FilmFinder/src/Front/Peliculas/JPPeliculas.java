@@ -200,7 +200,7 @@ public class JPPeliculas extends javax.swing.JPanel {
         });
         add(jButtonNuevoEstu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 113, -1));
 
-        jComboBoxFiltrarEstudiante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por..." }));
+        jComboBoxFiltrarEstudiante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por...", "Nombre de la Pelicula", "Id de Pelicula", "Año de Estreno", "Idioma", "Puntuacion", "Sipnosis", "Genero", "Director" }));
         jComboBoxFiltrarEstudiante.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(127, 0, 0)));
         jComboBoxFiltrarEstudiante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,7 +301,21 @@ public class JPPeliculas extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextFieldBusquedaMousePressed
 
     private void jTextFieldBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBusquedaKeyReleased
-
+        String Parametro_de_busqueda_estudiante="nombrePelicula";
+        String Busqueda=this.jTextFieldBusqueda.getText();
+        switch(this.jComboBoxFiltrarEstudiante.getSelectedIndex()){
+            case 0:{Parametro_de_busqueda_estudiante="nombrePelicula";break;}
+            case 1:{Parametro_de_busqueda_estudiante="nombrePelicula";break;}
+            case 2:{Parametro_de_busqueda_estudiante="idPelicula";break;}
+            case 3:{Parametro_de_busqueda_estudiante="Estreno";break;}
+            case 4:{Parametro_de_busqueda_estudiante="idioma";break;}
+            case 5:{Parametro_de_busqueda_estudiante="puntuacion";break;}
+            case 6:{Parametro_de_busqueda_estudiante="sinopsis";break;}
+            case 7:{Parametro_de_busqueda_estudiante="genero";break;}
+            case 8:{Parametro_de_busqueda_estudiante="directo";break;}
+        }
+        this.SQL="SELECT * FROM " +selectTabla+ " WHERE " + Parametro_de_busqueda_estudiante + " like '%" + Busqueda+ "%'";
+        atributos.busquedaDespliegue(this.jTableTablaEstudiantes,this.selectTabla,this.SQL);
     }//GEN-LAST:event_jTextFieldBusquedaKeyReleased
 
     private void jButtonNuevoEstuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNuevoEstuMouseEntered
