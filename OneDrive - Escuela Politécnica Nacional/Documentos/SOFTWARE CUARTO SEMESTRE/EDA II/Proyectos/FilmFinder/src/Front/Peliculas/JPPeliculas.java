@@ -309,7 +309,7 @@ public class JPPeliculas extends javax.swing.JPanel {
             case 2:{Parametro_de_busqueda_estudiante="idPelicula";break;}
             case 3:{Parametro_de_busqueda_estudiante="Estreno";break;}
             case 4:{Parametro_de_busqueda_estudiante="idioma";break;}
-            case 5:{Parametro_de_busqueda_estudiante="puntuacion";break;}
+            case 5:{Parametro_de_busqueda_estudiante="PuntuacionSobre5";break;}
             case 6:{Parametro_de_busqueda_estudiante="sinopsis";break;}
             case 7:{Parametro_de_busqueda_estudiante="genero";break;}
             case 8:{Parametro_de_busqueda_estudiante="directo";break;}

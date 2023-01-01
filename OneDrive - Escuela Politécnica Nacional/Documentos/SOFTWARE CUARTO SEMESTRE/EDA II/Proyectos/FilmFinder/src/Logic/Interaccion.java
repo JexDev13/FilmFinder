@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
@@ -37,7 +39,7 @@ public class Interaccion
                     pelicula[1] = rs.getString("nombrePelicula");
                     pelicula[2] = rs.getString("Estreno");
                     pelicula[3] = rs.getString("idioma");
-                    pelicula[4] = rs.getString("puntuacion");
+                    pelicula[4] = rs.getString("PuntuacionSobre5");
                     pelicula[5] = rs.getString("sinopsis");
                     pelicula[6] = rs.getString("genero");
                     pelicula[7] = rs.getString("directo");
@@ -92,4 +94,36 @@ public class Interaccion
         }
     }
     //Fin Insertar en tablas.
+    
+   //Actualizar y eliminar datos tablas. Jhonathan&&Marlow
+     public String prepararActualizar(ArrayList<String> atributosActualizar) 
+    {
+        String parametroCambio="";
+        Iterator i = atributosActualizar.iterator();
+        while (i.hasNext()) {
+            parametroCambio += i.next() + ",";
+        }
+        parametroCambio = parametroCambio.substring(0, parametroCambio.length() - 1);
+        return parametroCambio;
+    }
+
+    public boolean actualizarEliminarTablas(String SQL) {
+        int pos;
+        try {
+            PreparedStatement PS = con1.getConnection().prepareStatement(SQL);
+            pos = PS.executeUpdate();
+            System.out.println(pos);
+            if (pos > 0) {
+                return true;
+                
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(Interaccion.class.getName()).log(Level.SEVERE, null, e);
+            return false;
+        }
+        
+        return false;
+    }
+    //Fin Actualizar tablas.
+
 }
