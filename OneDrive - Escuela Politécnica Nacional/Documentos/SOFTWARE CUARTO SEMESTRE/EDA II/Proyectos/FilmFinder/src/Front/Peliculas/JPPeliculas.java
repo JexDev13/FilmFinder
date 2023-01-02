@@ -11,6 +11,7 @@ public class JPPeliculas extends javax.swing.JPanel {
     
     Interaccion atributos = new Interaccion();
     JFEstudianteInsentar insertar = new JFEstudianteInsentar();
+    JFEstudianteActualizar actualizar = new JFEstudianteActualizar();
     private String selectTabla = "pelicula";
     private String SQL;
 
@@ -285,7 +286,7 @@ public class JPPeliculas extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonActualizarEstuMouseExited
 
     private void jButtonActualizarEstuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarEstuActionPerformed
-
+         actualizar.setVisible(true);
     }//GEN-LAST:event_jButtonActualizarEstuActionPerformed
 
     private void jTextFieldBusquedaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldBusquedaFocusLost

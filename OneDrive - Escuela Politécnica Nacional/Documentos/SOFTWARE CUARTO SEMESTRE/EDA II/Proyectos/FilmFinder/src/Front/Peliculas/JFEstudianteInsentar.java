@@ -11,10 +11,12 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
     Interaccion atributos = new Interaccion();
     private String SQL;
     private String tablaInsertar="pelicula";//tabla a la q se hace referencia
+   
     public JFEstudianteInsentar() {
         initComponents();
         setLocationRelativeTo(this);
         this.jTFNombre.requestFocus();
+        
         this.SQL= "Select idPelicula from pelicula order By idpelicula DESC limit 1;";
         int nuevoCod = atributos.busquedaCod(tablaInsertar, SQL, "idPelicula") + 1;
         this.jTFCodigo.setText(nuevoCod + "");

@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -125,5 +126,32 @@ public class Interaccion
         return false;
     }
     //Fin Actualizar tablas.
+    
+    public void despliegueFields(String SQL, String tabla, JTextField uno, JTextField dos, JTextField tres, JTextField cuatro,
+                                JTextField cinco, JTextField seis, JTextField siete, JTextField ocho, String operacion) {
+        try {
+            conection = con1.getConnection();
+            st = conection.createStatement();
+            rs = st.executeQuery(SQL);
+            if (tabla.equals("pelicula")) {
+                while (rs.next()) {
+                    if(uno != null){uno.setText(""+rs.getInt("idPelicula"));}
+                    if (operacion != null && operacion.equalsIgnoreCase("actualizar")){
+                        if(dos!=null){dos.setText(rs.getString("nombrePelicula"));}
+                        if(tres!=null){tres.setText(rs.getString("Estreno"));}
+                    } 
+                    if (cuatro != null) {cuatro.setText("" + rs.getInt("idioma"));}
+                    if(cinco!=null){cinco.setText("" + rs.getString("PuntuacionSobre5"));}
+                    if(seis!=null){seis.setText("" + rs.getString("sinopsis"));}
+                    if(siete!=null){siete.setText("" + rs.getString("genero"));}
+                }
+            }
+            
+        
+        }catch(SQLException e){
+            Logger.getLogger(Interaccion.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+    //Fin Buscar en tablas.
 
 }
