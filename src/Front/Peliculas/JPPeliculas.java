@@ -274,7 +274,8 @@ public class JPPeliculas extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonEliminarEstuMouseExited
 
     private void jButtonEliminarEstuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarEstuActionPerformed
-
+        JFEstudianteEliminar eliminar = new JFEstudianteEliminar();
+        eliminar.setVisible(true);
     }//GEN-LAST:event_jButtonEliminarEstuActionPerformed
 
     private void jButtonActualizarEstuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonActualizarEstuMouseEntered

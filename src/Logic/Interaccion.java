@@ -62,6 +62,7 @@ public class Interaccion
             if (tabla.equals("pelicula")) {
                 while (rs.next()) {
                     if(columna.equals("idPelicula")) {codigo = rs.getInt("idPelicula");}
+                    if(columna.equals("count(*)")){codigo = rs.getInt("count(*)");}
                 }
             }
         } catch (SQLException e) {
@@ -140,10 +141,11 @@ public class Interaccion
                         if(dos!=null){dos.setText(rs.getString("nombrePelicula"));}
                         if(tres!=null){tres.setText(rs.getString("Estreno"));}
                     } 
-                    if (cuatro != null) {cuatro.setText("" + rs.getInt("idioma"));}
+                    if (cuatro != null) {cuatro.setText("" + rs.getString("idioma"));}
                     if(cinco!=null){cinco.setText("" + rs.getString("PuntuacionSobre5"));}
                     if(seis!=null){seis.setText("" + rs.getString("sinopsis"));}
                     if(siete!=null){siete.setText("" + rs.getString("genero"));}
+                    if(ocho!=null){ocho.setText("" + rs.getString("directo"));}
                 }
             }
             
