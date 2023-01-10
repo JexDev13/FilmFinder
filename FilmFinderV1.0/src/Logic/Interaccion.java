@@ -53,6 +53,33 @@ public class Interaccion
         }
     }
     
+        public ArrayList busquedaArray(String selectTabla, String SQL){
+        ArrayList lista = new ArrayList();
+        try {
+            lista=new ArrayList();
+            conection = con1.getConnection();
+            st = conection.createStatement();
+            rs = st.executeQuery(SQL);
+            if (selectTabla.equals("pelicula")) {
+                while (rs.next()) {
+                    Pelicula pelicula = new Pelicula();
+                    pelicula.setIdPelicula(rs.getInt("idPelicula"));
+                    pelicula.setNombrePelicula(rs.getString("nombrePelicula"));
+                    pelicula.setEstreno(Integer.parseInt(rs.getString("Estreno")));
+                    pelicula.setIdioma(rs.getString("idioma"));
+                    pelicula.setPuntuacionSobre5(Integer.parseInt(rs.getString("PuntuacionSobre5")));
+                    pelicula.setSinopsis(rs.getString("sinopsis"));
+                    pelicula.setGenero(rs.getString("genero"));
+                    pelicula.setDirector(rs.getString("directo"));
+                    lista.add(pelicula);
+                }
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(Interaccion.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return lista;
+    }
+    
     public int busquedaCod(String tabla, String SQL, String columna) {
         int codigo = 0;
         try {

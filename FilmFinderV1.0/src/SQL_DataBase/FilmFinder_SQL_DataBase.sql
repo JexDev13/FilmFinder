@@ -73,7 +73,7 @@ La película continúa explorando la compleja relación entre el hada de enormes
   "El Depredador",
  "2018",
  "Español",
- "Excelente",
+ "5",
  "Cuando el pequeño Rory (Jacob Tremblay) activa accidentalmente el regreso a la Tierra de los yautjas, desencadenará la vuelta de los cazadores más letales del universo, una especie extraterrestre caracterizada por convertir en su trofeo al resto de criaturas y por obtener su poder a través de la hibridación.
 
 Ahora, estos alienígenas han mejorado su ADN y ahora son aún más peligrosos, fuertes, inteligentes y mortales. Por eso, solo un grupo de exsoldados y una profesora de ciencias podrán evitar el fin de la humanidad. Predator.",
@@ -199,7 +199,7 @@ Para evitar que esto pase, Lorraine debe formar equipo con el jefe de la secció
  "David Leitch");
    insert into pelicula(nombrePelicula,Estreno,idioma,PuntuacionSobre5,sinopsis,genero,directo) values( "Colossal",
  "2016",
- "Español","Buena",
+ "Español","3",
  "Después de que su novio la abandone y de perder su trabajo, Gloria (Anne Hathaway) decide dejar Nueva York y volver al lugar donde pasó su infancia, una pequeña ciudad alejada del mundanal ruido de Manhattan. Gracias a su reencuentro con Oscar (Jason Sudeikis), antiguo amigo de adolescencia, la joven conseguirá retomar su vida.
 
 Mientras, las noticias informan de que un gigantesco monstruo está destruyendo la ciudad de Seúl y causando numerosas bajas en la población. Será entonces cuando Gloria descubra, sorprendida, que su mente está conectada, de forma sobrenatural, con la de esta colosal criatura, por lo que deberá poner sus ideas en orden si no quiere seguir siendo una amenaza para la humanidad.",
