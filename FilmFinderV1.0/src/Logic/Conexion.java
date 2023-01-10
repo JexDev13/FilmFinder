@@ -7,7 +7,6 @@ import java.sql.DriverManager;
 public class Conexion {
 
     Connection cn;
-
     public Connection getConnection() {
         return cn;
     }
