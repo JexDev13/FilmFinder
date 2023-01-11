@@ -63,3 +63,4 @@ Un integrante del grupo deberá subir en la carpeta de proyecto, del aula, los s
 2. El archivo en Word o PDF del informe del proyecto.
 
 Nota: Acorde a las fechas planificadas en el sílabo, cada grupo tendrá 15 minutos para la defensa práctica de su proyecto. Deben intervenir todos los integrantes de cada grupo.
+
