@@ -6,7 +6,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /*
- * @author Arias,Tibanta, Armijo, Salazar J, Salazar S
+ * @autores Cinefilos de EDA
  */
 public class JFEstudianteEliminar extends javax.swing.JFrame {
 

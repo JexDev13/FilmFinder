@@ -4,9 +4,8 @@
  */
 package Front.Rentas;
 
-/**
- *
- * @author JEREMY
+/*
+ * @autores Cinefilos de EDA
  */
 public class JPRentas extends javax.swing.JPanel {
 

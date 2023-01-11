@@ -22,9 +22,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author JEREMY
+/*
+ * @autores Cinefilos de EDA
  */
 public class Interaccion {
 

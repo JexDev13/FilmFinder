@@ -17,6 +17,7 @@ public class Pelicula implements Comparable<Pelicula>{
     private String sinopsis;
     private String genero;
     private String director;
+    private String estado;
 
     public int getIdPelicula() {
         return idPelicula;

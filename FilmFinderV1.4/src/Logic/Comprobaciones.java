@@ -3,7 +3,7 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /*
- * @author Arias,Tibanta, Armijo, Salazar J, Salazar S
+ * @autores Cinefilos de EDA
  */
 public class Comprobaciones {
        private String nombre;

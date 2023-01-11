@@ -1,12 +1,10 @@
 package Front.Peliculas;
-
 import Logic.Interaccion;
 import Logic.Comprobaciones;
 import java.awt.Color;
 import java.util.ArrayList;
-
 /*
- * @author Arias,Tibanta, Armijo, Salazar J, Salazar S
+ * @autores Cinefilos de EDA
  */
 public class JFEstudianteActualizar extends javax.swing.JFrame {
 

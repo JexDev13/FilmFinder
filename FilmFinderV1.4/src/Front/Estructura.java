@@ -3,9 +3,7 @@ package Front;
 import Front.Mejores.JPMejores;
 import Front.Rentas.JPRentas;
 import Front.Peliculas.JPPeliculas;
-
 import Logic.Fecha;
-
 import java.awt.BorderLayout;
 import java.awt.Desktop;//
 import java.net.URI;
@@ -284,7 +282,6 @@ public class Estructura extends javax.swing.JFrame implements Runnable {
         this.jPContenido.add(peli, BorderLayout.CENTER);
         this.jPContenido.revalidate();
         this.jPContenido.repaint();
-
     }//GEN-LAST:event_jBPeliculasActionPerformed
 
     private void jBMejoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMejoresActionPerformed

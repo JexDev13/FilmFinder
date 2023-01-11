@@ -1,17 +1,13 @@
 package Front.Peliculas;
 
-import Logic.Conexion;
 import Logic.Interaccion;
-import java.awt.Image;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /*
- * @author Arias,Tibanta, Armijo, Salazar J, Salazar S
+ * @autores Cinefilos de EDA
  */
 public class JFEstudianteInsentar extends javax.swing.JFrame {
     private int x;

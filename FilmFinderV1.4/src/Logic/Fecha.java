@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 
 /*
- * @author JEREMY
+ * @autores Cinefilos de EDA
  */
 public class Fecha {
     

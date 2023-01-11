@@ -5,6 +5,10 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
+/*
+ * @autores Cinefilos de EDA
+ */
+
 public class TablaImagen extends DefaultTableCellRenderer {
 
     @Override
