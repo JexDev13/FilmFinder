@@ -322,7 +322,8 @@ public class JFRentar extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(null, "Datos Guardados correctamente", "RESULTADO", HEIGHT);
                             this.SQL="UPDATE pelicula SET Disponibilidad = 'NO DISPONIBLE' WHERE IdPelicula = " + codLibro + ";";
                             atributos.actualizarEliminarTablas(SQL);
-                            this.setVisible(false); 
+                            this.setVisible(false);
+                            limpiarCampos();
                     }
                 }
             }
@@ -457,6 +458,18 @@ public class JFRentar extends javax.swing.JFrame {
                 new JFRentar().setVisible(true);
             }
         });
+    }
+    
+    public void limpiarCampos() {
+        this.jTFApellidoEstudiante.setText("");
+        this.jTFBuscar_ActualizarEst.setText("");
+        this.jTFCodigoEstudiante.setText("");
+        this.jTFCodigoPrestamo.setText("");
+        this.jTFCodigo_Actualizar.setText("");
+        this.jTFFechaDevolucion.setText("");
+        this.jTFFechaPrestamo.setText("");
+        this.jTFNombreEstudiante.setText("");
+        this.jTFNombre_Actualizar.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
