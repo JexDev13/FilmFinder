@@ -30,6 +30,7 @@ public class Interaccion {
     Conexion con1 = new Conexion();
     Connection cn = con1.conectar();
     Connection conection;
+    Fecha fecha =  new Fecha();
     Statement st;
     ResultSet rs;
 
@@ -54,6 +55,24 @@ public class Interaccion {
                     pelicula[7] = rs.getString("directo");
                     pelicula[8] = rs.getString("Disponibilidad");
                     tabla.addRow(pelicula);
+                }
+                jTabla.setModel(tabla);
+            }
+            if (selectTabla.equals("prestamoPelicula")) {
+                Object[] prestamoPelicula = new Object[8];
+                DefaultTableModel tabla = new javax.swing.table.DefaultTableModel(
+                        new Object[][]{},
+                        new String[]{"IdPrestamo", "IdPelicula", "Titulo", "Id Usuario", "Nombre", "Apellido", "FechaPrestamo", "FechaDevolucion"});
+                while (rs.next()) {
+                    prestamoPelicula[0] = rs.getInt("idPrestamo");
+                    prestamoPelicula[1] = rs.getInt("IdPelicula");
+                    prestamoPelicula[2] = rs.getString("Titulo");
+                    prestamoPelicula[3] = rs.getInt("idEstudiante");
+                    prestamoPelicula[4] = rs.getString("NombreEstudiante");
+                    prestamoPelicula[5] = rs.getString("ApellidoEstudiante");
+                    prestamoPelicula[6] = rs.getString("FechaPrestamo");
+                    prestamoPelicula[7] = rs.getString("FechaDevolucion");
+                    tabla.addRow(prestamoPelicula);
                 }
                 jTabla.setModel(tabla);
             }
@@ -104,6 +123,42 @@ public class Interaccion {
                     if (columna.equals("count(*)")) {
                         codigo = rs.getInt("count(*)");
                     }
+                    if(columna.equals("Disponibilidad")) {
+                        
+                    }
+                }
+            }
+            if (tabla.equals("prestamoPelicula")) {
+                while (rs.next()) {
+                    if(columna.equals("idPrestamo")){
+                        codigo = rs.getInt("idPrestamo");
+                    }
+                    if(columna.equals("count(*)")){
+                        codigo = rs.getInt("count(*)");
+                    }
+                    if(columna.equals("fecha")){
+                        fecha.fechaAuxiliar(rs.getString("FechaDevolucion"));
+                        codigo=((int)fecha.diferenciaFechaDias());
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(Interaccion.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return codigo;
+    }
+    
+    public String busquedaDis(String tabla, String SQL, String columna) {
+        String codigo = "";
+        try {
+            conection = con1.getConnection();
+            st = conection.createStatement();
+            rs = st.executeQuery(SQL);
+            if (tabla.equals("pelicula")) {
+                while (rs.next()) {
+                    if(columna.equals("Disponibilidad")) {
+                        codigo = rs.getString("Disponibilidad");
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -128,6 +183,18 @@ public class Interaccion {
                 pps.setString(7, correo);
                 pps.setString(8, director);
                 pps.setString(9, "Disponible");
+                pps.executeUpdate();
+                return true;
+            }
+            if (tabla.equals("prestamoPelicula")) {
+                pps.setString(1, codigoPrestamo);
+                pps.setInt(2, codigoLibro);
+                pps.setString(3, nombre);
+                pps.setInt(4, codigoEstudiante);
+                pps.setString(5, correo);
+                pps.setString(6, apellido);
+                pps.setString(7, fecha1);
+                pps.setString(8, fecha2);
                 pps.executeUpdate();
                 return true;
             }

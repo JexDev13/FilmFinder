@@ -3,15 +3,15 @@ create database proyecto1;
 use proyecto1;
 create table  pelicula
 (
-		idPelicula int  auto_increment not null,
+	idPelicula int  auto_increment not null,
         nombrePelicula varchar(2000)  not null,
-		Estreno varchar(4)  not null,
+	Estreno varchar(4)  not null,
         idioma varchar(50) not null,
         PuntuacionSobre5 varchar(20) not null,
         sinopsis varchar (2000) not null  ,
         genero varchar(2000) not null,
         directo  varchar(100) not null,
-		Disponibilidad varchar(20) not null,
+	Disponibilidad varchar(20) not null,
         
         primary key (idPelicula)
   
@@ -20,9 +20,9 @@ create table  pelicula
 
 create table  prestamoPelicula
 (
-		idPrestamo int  auto_increment not null,
+	idPrestamo int  auto_increment not null,
         IdPelicula varchar(2000)  ,
-		Titulo varchar(500)  ,
+	Titulo varchar(500)  ,
         idEstudiante varchar(50) ,
         NombreEstudiante varchar(50) ,
         ApellidoEstudiante varchar (50) ,
