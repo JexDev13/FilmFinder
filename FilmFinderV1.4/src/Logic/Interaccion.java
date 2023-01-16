@@ -206,7 +206,7 @@ public class Interaccion {
     }
     //Fin Insertar en tablas.
 
-    //Actualizar y eliminar datos tablas. Jhonathan&&Marlow
+    //Actualizar y eliminar datos tablas. 
     public String prepararActualizar(ArrayList<String> atributosActualizar) {
         String parametroCambio = "";
         Iterator i = atributosActualizar.iterator();
@@ -280,7 +280,7 @@ public class Interaccion {
     //Fin Buscar en tablas.
 
     public void guardarImagen(String ruta, String nombre) {
-        //String insert = "insert into portadas(foto) values(?)";
+    
         String insert = "INSERT INTO portadas(foto) values(?)";
         FileInputStream fi = null;
         PreparedStatement ps = null;
@@ -298,7 +298,7 @@ public class Interaccion {
     }
 
     public void actualizarImagen(String ruta, String parametroBusqueda) {
-        //String insert = "insert into portadas(foto) values(?)";
+
         String insert = "UPDATE portadas SET " + ruta + "' WHERE idPelicula LIKE " + parametroBusqueda;
         int pos;
         try {
@@ -328,7 +328,7 @@ public class Interaccion {
 
     public void visualizar_tabla(JTable tabla) {
         ResultSet rs = visualizar();
-        //Image img = null;   
+
         tabla.setDefaultRenderer(Object.class, new TablaImagen());
         DefaultTableModel dt = new DefaultTableModel();
 
