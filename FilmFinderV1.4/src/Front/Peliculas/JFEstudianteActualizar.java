@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
+import javax.swing.JOptionPane;
 /*
  * @autores Cinefilos de EDA
  */
@@ -633,7 +634,18 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
     }//GEN-LAST:event_jBCancelarMouseExited
 
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
-
+        if (this.jBCancelar.getText().equalsIgnoreCase("cancelar")) {
+            int seleccion = JOptionPane.showConfirmDialog(null,"¿Desea cancelar la actualizacion?"
+                + "\n     -Los datos ingresados no seran guardados","Canceclar",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+            if (seleccion == 0) {
+                this.setVisible(false);
+                //limpiarCampos();
+            }
+        } else {
+            if (this.jBCancelar.getText().equalsIgnoreCase("aceptar")) {
+                this.setVisible(false);
+            }
+        }
     }//GEN-LAST:event_jBCancelarActionPerformed
 
     private void jBRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBRegistrarMouseEntered

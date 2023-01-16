@@ -316,7 +316,8 @@ public class JFRentar extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(null, "Datos Guardados correctamente", "RESULTADO", HEIGHT);
                             this.SQL="UPDATE pelicula SET Disponibilidad = 'NO DISPONIBLE' WHERE IdPelicula = " + codLibro + ";";
                             atributos.actualizarEliminarTablas(SQL);
-                            this.setVisible(false); 
+                            this.setVisible(false);
+                            limpiarCampos();
                     }
                 }
             }
@@ -417,6 +418,53 @@ public class JFRentar extends javax.swing.JFrame {
         }
         this.jTFFechaDevolucion.setText(this.fecha2);
     }//GEN-LAST:event_jCBPeriodoActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(JFRentar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(JFRentar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(JFRentar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JFRentar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new JFRentar().setVisible(true);
+            }
+        });
+    }
+    
+    public void limpiarCampos() {
+        this.jTFApellidoEstudiante.setText("");
+        this.jTFBuscar_ActualizarEst.setText("");
+        this.jTFCodigoEstudiante.setText("");
+        this.jTFCodigoPrestamo.setText("");
+        this.jTFCodigo_Actualizar.setText("");
+        this.jTFFechaDevolucion.setText("");
+        this.jTFFechaPrestamo.setText("");
+        this.jTFNombreEstudiante.setText("");
+        this.jTFNombre_Actualizar.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCancelar;
