@@ -27,9 +27,6 @@ public class JPPeliculas extends javax.swing.JPanel {
     private String SQL;
     Interaccion con = new Interaccion();
     DefaultTableModel tabla = new DefaultTableModel();
-    
-    
-    
 
     public JPPeliculas() {
         initComponents();
@@ -37,8 +34,6 @@ public class JPPeliculas extends javax.swing.JPanel {
         jTableTablaEstudiantes.getTableHeader().setBackground(new Color(127, 0, 0));
         jTableTablaEstudiantes.getTableHeader().setFont(new Font("Segoe UI Symbol", Font.BOLD, 12));
         jTableTablaEstudiantes.getTableHeader().setForeground(Color.WHITE);
-        
-       
 
         this.jScrollPane2.setBackground(Color.WHITE);
         this.jScrollPane2.getVerticalScrollBar().setBackground(Color.WHITE);
@@ -54,14 +49,15 @@ public class JPPeliculas extends javax.swing.JPanel {
         atributos.busquedaDespliegue(jTableTablaEstudiantes, selectTabla, SQL);
 
         //CargarImagenes();
-
         this.jTASipnosis.setVisible(false);
         this.jPTabla.setVisible(false);
         this.bGroupOpciones.add(this.jRBTabla);
         this.bGroupOpciones.add(this.jRBVistaPeliculas);
         this.jRBTabla.setBackground(Color.WHITE);
-        
+
         atributos.visualizar_tabla(jTablePeliculas);
+
+        ocultar();
 
     }
 
@@ -82,9 +78,21 @@ public class JPPeliculas extends javax.swing.JPanel {
         jRBVistaPeliculas = new javax.swing.JRadioButton();
         jRBTabla = new javax.swing.JRadioButton();
         jTASipnosis = new javax.swing.JPanel();
-        jLTitulo = new javax.swing.JLabel();
-        jLEncabezado = new javax.swing.JLabel();
         jLTituloEncabezado = new javax.swing.JLabel();
+        jLTitulo = new javax.swing.JLabel();
+        jLEst = new javax.swing.JLabel();
+        jLEstreno_T = new javax.swing.JLabel();
+        jLIdioma_T = new javax.swing.JLabel();
+        jLIdiom = new javax.swing.JLabel();
+        jLPun = new javax.swing.JLabel();
+        jLPunt_T = new javax.swing.JLabel();
+        jLGen_T = new javax.swing.JLabel();
+        jLGen = new javax.swing.JLabel();
+        jLDir_T = new javax.swing.JLabel();
+        jLDir = new javax.swing.JLabel();
+        jLDisp_T = new javax.swing.JLabel();
+        jLDisp = new javax.swing.JLabel();
+        jLSipnosis_T = new javax.swing.JLabel();
         jLSipnosis = new javax.swing.JLabel();
         jPListaPeliculas = new javax.swing.JPanel();
         jLabelTituloTabla1 = new javax.swing.JLabel();
@@ -249,47 +257,57 @@ public class JPPeliculas extends javax.swing.JPanel {
 
         jTASipnosis.setBackground(new java.awt.Color(255, 255, 255));
         jTASipnosis.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 51), 2));
-
-        jLEncabezado.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        jLEncabezado.setForeground(new java.awt.Color(153, 0, 51));
-        jLEncabezado.setText("Sipnosis:");
+        jTASipnosis.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLTituloEncabezado.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLTituloEncabezado.setForeground(new java.awt.Color(153, 0, 51));
         jLTituloEncabezado.setText("Titulo:");
+        jTASipnosis.add(jLTituloEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 69, 30));
+        jTASipnosis.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 299, 30));
+        jTASipnosis.add(jLEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 250, 30));
+
+        jLEstreno_T.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLEstreno_T.setForeground(new java.awt.Color(153, 0, 51));
+        jLEstreno_T.setText("Estreno:");
+        jTASipnosis.add(jLEstreno_T, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 69, 30));
+
+        jLIdioma_T.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLIdioma_T.setForeground(new java.awt.Color(153, 0, 51));
+        jLIdioma_T.setText("Idioma:");
+        jTASipnosis.add(jLIdioma_T, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 69, 30));
+        jTASipnosis.add(jLIdiom, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 250, 30));
+        jTASipnosis.add(jLPun, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 220, 30));
+
+        jLPunt_T.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLPunt_T.setForeground(new java.awt.Color(153, 0, 51));
+        jLPunt_T.setText("Puntuacion:");
+        jTASipnosis.add(jLPunt_T, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 100, 30));
+
+        jLGen_T.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLGen_T.setForeground(new java.awt.Color(153, 0, 51));
+        jLGen_T.setText("Genero:");
+        jTASipnosis.add(jLGen_T, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 90, 30));
+        jTASipnosis.add(jLGen, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 260, 30));
+
+        jLDir_T.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLDir_T.setForeground(new java.awt.Color(153, 0, 51));
+        jLDir_T.setText("Director:");
+        jTASipnosis.add(jLDir_T, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 90, 30));
+        jTASipnosis.add(jLDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 250, 30));
+
+        jLDisp_T.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLDisp_T.setForeground(new java.awt.Color(153, 0, 51));
+        jLDisp_T.setText("Estado:");
+        jTASipnosis.add(jLDisp_T, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 69, 30));
+        jTASipnosis.add(jLDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 250, 30));
+
+        jLSipnosis_T.setFont(new java.awt.Font("Segoe UI Black", 1, 16)); // NOI18N
+        jLSipnosis_T.setForeground(new java.awt.Color(153, 0, 51));
+        jLSipnosis_T.setText("Sipnosis:");
+        jTASipnosis.add(jLSipnosis_T, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 190, 30));
 
         jLSipnosis.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-
-        javax.swing.GroupLayout jTASipnosisLayout = new javax.swing.GroupLayout(jTASipnosis);
-        jTASipnosis.setLayout(jTASipnosisLayout);
-        jTASipnosisLayout.setHorizontalGroup(
-            jTASipnosisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jTASipnosisLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jTASipnosisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jTASipnosisLayout.createSequentialGroup()
-                        .addComponent(jLTituloEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE))
-                    .addGroup(jTASipnosisLayout.createSequentialGroup()
-                        .addComponent(jLEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLSipnosis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jTASipnosisLayout.setVerticalGroup(
-            jTASipnosisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jTASipnosisLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jTASipnosisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLTituloEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLSipnosis, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jTASipnosis.add(jLSipnosis, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 82, 374, 200));
 
         add(jTASipnosis, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 110, 390, 290));
 
@@ -516,6 +534,7 @@ public class JPPeliculas extends javax.swing.JPanel {
         if (colu == 5) {
             String titulo = String.valueOf(jTableTablaEstudiantes.getValueAt(fila, 1));
             String sipnosis = String.valueOf(jTableTablaEstudiantes.getValueAt(fila, 5));
+            this.jLSipnosis_T.setText("Sipnosis");
             this.jLTitulo.setText(titulo);
             this.jLSipnosis.setText("<html>" + sipnosis + "<html>");
             this.jTASipnosis.setVisible(true);
@@ -552,13 +571,22 @@ public class JPPeliculas extends javax.swing.JPanel {
         int fila = jTablePeliculas.getSelectedRow();
         int colu = jTablePeliculas.getSelectedColumn();
         if (colu == 0) {
+            mostrar();
             String titulo = String.valueOf(jTableTablaEstudiantes.getValueAt(fila, 1));
-            String disponibilidad=String.valueOf(jTableTablaEstudiantes.getValueAt(fila, 4));
-            String puntaje=String.valueOf(jTableTablaEstudiantes.getValueAt(fila, 8));
+            String anio = String.valueOf(jTableTablaEstudiantes.getValueAt(fila, 2));
+            String idioma = String.valueOf(jTableTablaEstudiantes.getValueAt(fila, 3));
+            String puntaje = String.valueOf(jTableTablaEstudiantes.getValueAt(fila, 4));
+            String genero = String.valueOf(jTableTablaEstudiantes.getValueAt(fila, 6));
+            String director = String.valueOf(jTableTablaEstudiantes.getValueAt(fila, 7));
+            String disponibilidad = String.valueOf(jTableTablaEstudiantes.getValueAt(fila, 8));
             this.jLTitulo.setText(titulo);
-            this.jLEncabezado.setText("DATOS");
-            this.jLSipnosis.setText("Disponibilidad: "+disponibilidad+" \n"+
-                                    "Puntaje: "+puntaje);
+            this.jLSipnosis_T.setText("Informacion");
+            this.jLDir.setText(director);
+            this.jLDisp.setText(disponibilidad);
+            this.jLEst.setText(anio);
+            this.jLGen.setText(genero);
+            this.jLIdiom.setText(idioma);
+            this.jLPun.setText(puntaje);
             this.jTASipnosis.setVisible(true);
         }
     }//GEN-LAST:event_jTablePeliculasMouseClicked
@@ -571,6 +599,35 @@ public class JPPeliculas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTablePeliculasMouseExited
 
+    private void ocultar() {
+        this.jLDir.setVisible(false);
+        this.jLDir_T.setVisible(false);
+        this.jLDisp.setVisible(false);
+        this.jLDisp_T.setVisible(false);
+        this.jLEst.setVisible(false);
+        this.jLEstreno_T.setVisible(false);
+        this.jLGen.setVisible(false);
+        this.jLGen_T.setVisible(false);
+        this.jLIdiom.setVisible(false);
+        this.jLIdioma_T.setVisible(false);
+        this.jLPun.setVisible(false);
+        this.jLPunt_T.setVisible(false);
+    }
+
+    private void mostrar() {
+        this.jLDir.setVisible(true);
+        this.jLDir_T.setVisible(true);
+        this.jLDisp.setVisible(true);
+        this.jLDisp_T.setVisible(true);
+        this.jLEst.setVisible(true);
+        this.jLEstreno_T.setVisible(true);
+        this.jLGen.setVisible(true);
+        this.jLGen_T.setVisible(true);
+        this.jLIdiom.setVisible(true);
+        this.jLIdioma_T.setVisible(true);
+        this.jLPun.setVisible(true);
+        this.jLPunt_T.setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bGroupOpciones;
@@ -578,8 +635,20 @@ public class JPPeliculas extends javax.swing.JPanel {
     private javax.swing.JButton jButtonEliminarEstu;
     private javax.swing.JButton jButtonNuevoEstu;
     private javax.swing.JComboBox<String> jComboBoxFiltrarEstudiante;
-    private javax.swing.JLabel jLEncabezado;
+    private javax.swing.JLabel jLDir;
+    private javax.swing.JLabel jLDir_T;
+    private javax.swing.JLabel jLDisp;
+    private javax.swing.JLabel jLDisp_T;
+    private javax.swing.JLabel jLEst;
+    private javax.swing.JLabel jLEstreno_T;
+    private javax.swing.JLabel jLGen;
+    private javax.swing.JLabel jLGen_T;
+    private javax.swing.JLabel jLIdiom;
+    private javax.swing.JLabel jLIdioma_T;
+    private javax.swing.JLabel jLPun;
+    private javax.swing.JLabel jLPunt_T;
     private javax.swing.JLabel jLSipnosis;
+    private javax.swing.JLabel jLSipnosis_T;
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JLabel jLTituloEncabezado;
     private javax.swing.JLabel jLabelIconFiltro;

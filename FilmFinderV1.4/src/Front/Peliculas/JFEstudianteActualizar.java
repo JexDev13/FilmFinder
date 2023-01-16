@@ -1,8 +1,14 @@
 package Front.Peliculas;
+
 import Logic.Interaccion;
 import Logic.Comprobaciones;
 import java.awt.Color;
+import java.io.File;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /*
  * @autores Cinefilos de EDA
  */
@@ -11,6 +17,7 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
     private int x;
     private int y;
     Interaccion atributos = new Interaccion();
+    String ruta = null;
 
     Comprobaciones name = new Comprobaciones();
 
@@ -28,6 +35,10 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelImagen = new javax.swing.JPanel();
+        jChBFoto = new javax.swing.JCheckBox();
+        lblurl1 = new javax.swing.JLabel();
+        lblimagen = new javax.swing.JLabel();
         jLabelTitulo = new javax.swing.JLabel();
         jBCancelar = new javax.swing.JButton();
         jBRegistrar = new javax.swing.JButton();
@@ -59,7 +70,7 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setMinimumSize(new java.awt.Dimension(380, 475));
+        setMinimumSize(new java.awt.Dimension(784, 475));
         setUndecorated(true);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -72,6 +83,50 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(null);
+
+        jPanelImagen.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelImagen.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Imagen"));
+
+        jChBFoto.setBackground(new java.awt.Color(255, 255, 255));
+        jChBFoto.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jChBFoto.setForeground(new java.awt.Color(127, 0, 0));
+        jChBFoto.setText("Portada");
+        jChBFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jChBFotoActionPerformed(evt);
+            }
+        });
+
+        lblurl1.setEnabled(false);
+        lblurl1.setOpaque(true);
+
+        javax.swing.GroupLayout jPanelImagenLayout = new javax.swing.GroupLayout(jPanelImagen);
+        jPanelImagen.setLayout(jPanelImagenLayout);
+        jPanelImagenLayout.setHorizontalGroup(
+            jPanelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelImagenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelImagenLayout.createSequentialGroup()
+                        .addComponent(jChBFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblurl1, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE))
+                    .addComponent(lblimagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanelImagenLayout.setVerticalGroup(
+            jPanelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelImagenLayout.createSequentialGroup()
+                .addGroup(jPanelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lblurl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jChBFoto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelImagen);
+        jPanelImagen.setBounds(370, 30, 410, 360);
 
         jLabelTitulo.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,7 +156,7 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jBCancelar);
-        jBCancelar.setBounds(70, 420, 110, 40);
+        jBCancelar.setBounds(250, 420, 110, 40);
 
         jBRegistrar.setBackground(new java.awt.Color(56, 56, 56));
         jBRegistrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,7 +180,7 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jBRegistrar);
-        jBRegistrar.setBounds(200, 420, 110, 40);
+        jBRegistrar.setBounds(380, 420, 110, 40);
 
         jPDatosEstudianteActualizar.setBackground(new java.awt.Color(255, 255, 255));
         jPDatosEstudianteActualizar.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Datos a Actualizar"));
@@ -316,11 +371,11 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
                 .addGroup(jPDatosEstudianteActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTFDirector_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jChBDirector_Actualizar))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPDatosEstudianteActualizar);
-        jPDatosEstudianteActualizar.setBounds(10, 110, 360, 280);
+        jPDatosEstudianteActualizar.setBounds(10, 100, 360, 290);
 
         jPanelDatoEstudiante.setBackground(new java.awt.Color(255, 255, 255));
         jPanelDatoEstudiante.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Datos de la Pelicula"));
@@ -368,7 +423,7 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanelDatoEstudiante);
-        jPanelDatoEstudiante.setBounds(10, 40, 360, 70);
+        jPanelDatoEstudiante.setBounds(10, 30, 360, 70);
 
         jBMax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/minimizar icon prev 32.png"))); // NOI18N
         jBMax.setToolTipText("minimizar");
@@ -387,7 +442,7 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jBMax);
-        jBMax.setBounds(280, 0, 52, 30);
+        jBMax.setBounds(680, 0, 52, 30);
 
         jBSalirIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salir icon prev 32.png"))); // NOI18N
         jBSalirIcon.setToolTipText("salir");
@@ -406,22 +461,22 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jBSalirIcon);
-        jBSalirIcon.setBounds(330, 0, 52, 30);
+        jBSalirIcon.setBounds(730, 0, 52, 30);
 
         jLEncabezado.setBackground(new java.awt.Color(0, 0, 0));
         jLEncabezado.setOpaque(true);
         getContentPane().add(jLEncabezado);
-        jLEncabezado.setBounds(0, 0, 380, 30);
+        jLEncabezado.setBounds(0, 0, 790, 30);
 
         jLPie.setBackground(new java.awt.Color(0, 0, 0));
         jLPie.setOpaque(true);
         getContentPane().add(jLPie);
-        jLPie.setBounds(0, 400, 380, 80);
+        jLPie.setBounds(0, 400, 790, 80);
 
         jLCuerpo.setBackground(new java.awt.Color(255, 255, 255));
         jLCuerpo.setOpaque(true);
         getContentPane().add(jLCuerpo);
-        jLCuerpo.setBounds(0, 30, 380, 370);
+        jLCuerpo.setBounds(0, 30, 790, 370);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -590,9 +645,13 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
     }//GEN-LAST:event_jBRegistrarMouseExited
 
     private void jBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistrarActionPerformed
+        String url = lblurl1.getText();
+
         if (this.jTFBuscar_ActualizarEst.getText().isEmpty()) {
 
         } else {
+
+            //if (!jChBFoto.isSelected() && url.isEmpty()) {
             ArrayList<String> atributosActualizar = new ArrayList<>();
             String parametroBusqueda = this.jTFCodigo_Actualizar.getText();
             if (this.jChBNombre_Actualizar.isSelected()) {
@@ -619,13 +678,54 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
             String parametroCambio = atributos.prepararActualizar(atributosActualizar);
             this.SQL = "UPDATE " + tablaActualizar + " SET " + parametroCambio + " WHERE idPelicula LIKE " + parametroBusqueda;
             if (atributos.actualizarEliminarTablas(this.SQL) == true) {
+
+                if (this.jChBFoto.isSelected() && !url.isEmpty()) {
+                    imagen(url);
+                }
+
                 this.setVisible(false);
                 limpiarCampos();
             } else {
 
             }
+            //}
+
         }
+
+
     }//GEN-LAST:event_jBRegistrarActionPerformed
+
+    private void imagen(String url) {
+
+        if (url.trim().length() > -1) {
+            atributos.guardarImagen(ruta);
+            this.setVisible(false);
+            limpiarCampos();
+        } else {
+            JOptionPane.showMessageDialog(null, "No debe dejar los campos vacios: Nombre e Imagen");
+        }
+    }
+
+    private void jChBFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jChBFotoActionPerformed
+
+        if (jChBFoto.isSelected()) {
+            JFileChooser j = new JFileChooser();
+            j.setCurrentDirectory(new File("C:/Users/Isma2/OneDrive - Escuela Politécnica Nacional/Documentos/SOFTWARE CUARTO SEMESTRE/EDA II/Proyectos/FilmFinder"));
+
+            int ap = j.showOpenDialog(this);
+
+            if (ap == JFileChooser.APPROVE_OPTION) {
+                ruta = j.getSelectedFile().getAbsolutePath();
+                this.lblimagen.setIcon(new ImageIcon(ruta));
+                this.lblurl1.setText(ruta);
+            }
+        } else {
+
+            if (this.jChBFoto.isSelected()) {
+                this.jChBFoto.setSelected(false);
+            }
+        }
+    }//GEN-LAST:event_jChBFotoActionPerformed
 
     public void limpiarCampos() {
         this.jTFEstreno_Actualizar.setText("");
@@ -645,6 +745,7 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
     private javax.swing.JButton jBSalirIcon;
     private javax.swing.JCheckBox jChBDirector_Actualizar;
     private javax.swing.JCheckBox jChBEstreno_Actualizar;
+    private javax.swing.JCheckBox jChBFoto;
     private javax.swing.JCheckBox jChBGenero_Actualizar;
     private javax.swing.JCheckBox jChBIdioma_Actualizar;
     private javax.swing.JCheckBox jChBNombre_Actualizar;
@@ -658,6 +759,7 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPDatosEstudianteActualizar;
     private javax.swing.JPanel jPanelDatoEstudiante;
+    private javax.swing.JPanel jPanelImagen;
     public static javax.swing.JTextField jTFBuscar_ActualizarEst;
     public static javax.swing.JTextField jTFCodigo_Actualizar;
     public static javax.swing.JTextField jTFDirector_Actualizar;
@@ -667,5 +769,7 @@ public class JFEstudianteActualizar extends javax.swing.JFrame {
     public static javax.swing.JTextField jTFNombre_Actualizar;
     public static javax.swing.JTextField jTFPuntaje_Actualizar;
     public static javax.swing.JTextField jTFSinopsis_Actualizar;
+    private javax.swing.JLabel lblimagen;
+    private javax.swing.JLabel lblurl1;
     // End of variables declaration//GEN-END:variables
 }
