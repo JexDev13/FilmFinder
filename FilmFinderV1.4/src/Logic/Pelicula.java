@@ -1,10 +1,14 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Logic;
 
-/*
- * @authores Cinefilos de EDA
+/**
+ *
+ * @author Say
  */
-public class Pelicula implements Comparable<Pelicula> {
-
+public class Pelicula implements Comparable<Pelicula>{
     private int idPelicula;
     private String nombrePelicula;
     private int estreno;
@@ -13,8 +17,7 @@ public class Pelicula implements Comparable<Pelicula> {
     private String sinopsis;
     private String genero;
     private String director;
-    
-    //Creacion de una clase pelicula
+    private String estado;
 
     public int getIdPelicula() {
         return idPelicula;
@@ -79,16 +82,17 @@ public class Pelicula implements Comparable<Pelicula> {
     public void setDirector(String director) {
         this.director = director;
     }
-
+    
     @Override
     public int compareTo(Pelicula o) {
-        if (o.getPuntuacionSobre5() < puntuacionSobre5) {
+        if(o.getPuntuacionSobre5()<puntuacionSobre5){
             return -1;
-        } else if (o.getPuntuacionSobre5() < puntuacionSobre5) {
+        }else if(o.getPuntuacionSobre5()<puntuacionSobre5){
             return 0;
-        } else {
+        }else{
             return 1;
         }
     }
-
+    
+    
 }

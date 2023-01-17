@@ -85,7 +85,7 @@
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jCBPeriodo" pref="171" max="32767" attributes="0"/>
-                      <Component id="jTFBuscar_ActualizarEst" max="32767" attributes="0"/>
+                      <Component id="jTFBuscar_ActualizarPeli" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -97,7 +97,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jCBCodoNomLib" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTFBuscar_ActualizarEst" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTFBuscar_ActualizarPeli" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="22" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -124,9 +124,6 @@
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBCodoNomLibActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -154,10 +151,10 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFBuscar_ActualizarEst">
+        <Component class="javax.swing.JTextField" name="jTFBuscar_ActualizarPeli">
           <Events>
-            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFBuscar_ActualizarEstKeyReleased"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFBuscar_ActualizarEstKeyTyped"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFBuscar_ActualizarPeliKeyReleased"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFBuscar_ActualizarPeliKeyTyped"/>
           </Events>
         </Component>
       </SubComponents>
@@ -215,8 +212,8 @@
                               </Group>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jTFNombreEstudiante" max="32767" attributes="0"/>
-                                  <Component id="jTFCodigoEstudiante" max="32767" attributes="0"/>
-                                  <Component id="jTFNombre_Actualizar" max="32767" attributes="0"/>
+                                  <Component id="jTFCodigoPeli" max="32767" attributes="0"/>
+                                  <Component id="jTFTitulo_Actualizar" max="32767" attributes="0"/>
                                   <Component id="jTFApellidoEstudiante" max="32767" attributes="0"/>
                                   <Component id="jTFFechaPrestamo" max="32767" attributes="0"/>
                                   <Component id="jTFFechaDevolucion" pref="165" max="32767" attributes="0"/>
@@ -244,12 +241,12 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTFNombre_Actualizar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTFTitulo_Actualizar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTFCodigoEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTFCodigoPeli" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -311,12 +308,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTFCodigo_Actualizar">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFNombre_Actualizar">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFNombre_ActualizarActionPerformed"/>
-          </Events>
+        <Component class="javax.swing.JTextField" name="jTFTitulo_Actualizar">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFCodigoEstudiante">
+        <Component class="javax.swing.JTextField" name="jTFCodigoPeli">
         </Component>
         <Component class="javax.swing.JTextField" name="jTFNombreEstudiante">
         </Component>

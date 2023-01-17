@@ -30,11 +30,10 @@ public class Interaccion {
     Conexion con1 = new Conexion();
     Connection cn = con1.conectar();
     Connection conection;
-    Fecha fecha = new Fecha();
+    Fecha fecha =  new Fecha();
     Statement st;
     ResultSet rs;
 
-    //Metodo de llamada para que aparezca los datos en la tabla
     public void busquedaDespliegue(JTable jTabla, String selectTabla, String SQL) {
         try {
             conection = con1.getConnection();
@@ -44,7 +43,7 @@ public class Interaccion {
                 Object[] pelicula = new Object[9];
                 DefaultTableModel tabla = new javax.swing.table.DefaultTableModel(
                         new Object[][]{},
-                        new String[]{"Código", "Nombre", "Estreno", "Idioma", "Puntaje", "Sipnosis", "Genero", "Director", "Estado"});
+                        new String[]{"Código", "Nombre", "Estreno", "Idioma", "Puntaje", "Sipnosis", "Genero", "Director","Estado"});
                 while (rs.next()) {
                     pelicula[0] = rs.getInt("idPelicula");
                     pelicula[1] = rs.getString("nombrePelicula");
@@ -82,7 +81,7 @@ public class Interaccion {
         }
     }
 
-    //Metodo 2 para guardar la informacion en un array list y luego desplegarlo en una tabla
+
     public ArrayList busquedaArray(String selectTabla, String SQL) {
         ArrayList lista = new ArrayList();
         try {
@@ -124,22 +123,22 @@ public class Interaccion {
                     if (columna.equals("count(*)")) {
                         codigo = rs.getInt("count(*)");
                     }
-                    if (columna.equals("Disponibilidad")) {
-
+                    if(columna.equals("Disponibilidad")) {
+                        
                     }
                 }
             }
             if (tabla.equals("prestamoPelicula")) {
                 while (rs.next()) {
-                    if (columna.equals("idPrestamo")) {
+                    if(columna.equals("idPrestamo")){
                         codigo = rs.getInt("idPrestamo");
                     }
-                    if (columna.equals("count(*)")) {
+                    if(columna.equals("count(*)")){
                         codigo = rs.getInt("count(*)");
                     }
-                    if (columna.equals("fecha")) {
+                    if(columna.equals("fecha")){
                         fecha.fechaAuxiliar(rs.getString("FechaDevolucion"));
-                        codigo = ((int) fecha.diferenciaFechaDias());
+                        codigo=((int)fecha.diferenciaFechaDias());
                     }
                 }
             }
@@ -148,7 +147,7 @@ public class Interaccion {
         }
         return codigo;
     }
-
+    
     public String busquedaDis(String tabla, String SQL, String columna) {
         String codigo = "";
         try {
@@ -157,7 +156,7 @@ public class Interaccion {
             rs = st.executeQuery(SQL);
             if (tabla.equals("pelicula")) {
                 while (rs.next()) {
-                    if (columna.equals("Disponibilidad")) {
+                    if(columna.equals("Disponibilidad")) {
                         codigo = rs.getString("Disponibilidad");
                     }
                 }
@@ -168,7 +167,7 @@ public class Interaccion {
         return codigo;
     }
 
-    //Insertar en tablas.
+    //Insertar en tablas. Francisco
     public boolean insertarTabla(String SQL, String tabla, int codigoEstudiante, String nombre, String apellido, String celular,
             String sector, String facultad, String correo, int codigoLibro, String titulo, String fecha1, String edicion,
             String categoria, int stock, int disponibilidad, String fecha2, String codigoPrestamo, String director) {
@@ -207,18 +206,14 @@ public class Interaccion {
     }
     //Fin Insertar en tablas.
 
-    //Actualizar y eliminar datos tablas.
+    //Actualizar y eliminar datos tablas. 
     public String prepararActualizar(ArrayList<String> atributosActualizar) {
         String parametroCambio = "";
         Iterator i = atributosActualizar.iterator();
         while (i.hasNext()) {
             parametroCambio += i.next() + ",";
         }
-        int cambio = parametroCambio.length() - 1;
-        if (cambio != -1) {
-            parametroCambio = parametroCambio.substring(0, cambio);
-
-        }
+        parametroCambio = parametroCambio.substring(0, parametroCambio.length() - 1);
         return parametroCambio;
     }
 
@@ -241,7 +236,6 @@ public class Interaccion {
     }
     //Fin Actualizar tablas.
 
-    //Despliegua la informacion de la base de datos en fields
     public void despliegueFields(String SQL, String tabla, JTextField uno, JTextField dos, JTextField tres, JTextField cuatro,
             JTextField cinco, JTextField seis, JTextField siete, JTextField ocho, String operacion) {
         try {
@@ -285,8 +279,8 @@ public class Interaccion {
     }
     //Fin Buscar en tablas.
 
-    public void guardarImagen(String ruta) {
-        //String insert = "insert into portadas(foto) values(?)";
+    public void guardarImagen(String ruta, String nombre) {
+    
         String insert = "INSERT INTO portadas(foto) values(?)";
         FileInputStream fi = null;
         PreparedStatement ps = null;
@@ -303,7 +297,24 @@ public class Interaccion {
         }
     }
 
-    //Extrae la informacion de las imagenes y las prepara
+    public void actualizarImagen(String ruta, String parametroBusqueda) {
+
+        String insert = "UPDATE portadas SET " + ruta + "' WHERE idPelicula LIKE " + parametroBusqueda;
+        int pos;
+        try {
+            PreparedStatement PS = con1.getConnection().prepareStatement(insert);
+            pos = PS.executeUpdate();
+            System.out.println(pos);
+            if (pos > 0) {
+                System.out.println("1");
+
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(Interaccion.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+    }
+
     public ResultSet visualizar() {
         ResultSet rs = null;
         try {
@@ -315,10 +326,9 @@ public class Interaccion {
         return rs;
     }
 
-    //Renderiza las imagenes de blob a imagen y las presenta
     public void visualizar_tabla(JTable tabla) {
         ResultSet rs = visualizar();
-        //Image img = null;   
+
         tabla.setDefaultRenderer(Object.class, new TablaImagen());
         DefaultTableModel dt = new DefaultTableModel();
 
@@ -340,7 +350,7 @@ public class Interaccion {
                         } catch (Exception ex) {
                             System.out.println(ex.getMessage());
                         }
-                        ImageIcon icono = new ImageIcon(img.getScaledInstance(345, 390, Image.SCALE_DEFAULT));
+                        ImageIcon icono = new ImageIcon(img.getScaledInstance(375, 500, Image.SCALE_DEFAULT));
 
                         fila[0] = new JLabel(icono);
                     } catch (Exception ex) {
@@ -354,7 +364,7 @@ public class Interaccion {
             }
 
             tabla.setModel(dt);
-            tabla.setRowHeight(390);
+            tabla.setRowHeight(600);
             tabla.setTableHeader(null);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

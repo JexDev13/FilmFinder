@@ -252,14 +252,13 @@ Pero otro peligro les acecha, puesto que la inmortalidad de Logan está en juego
  "James Mangold",
  "Diponible");
  
-CREATE TABLE portadas
+ CREATE TABLE portadas
 (
 	id_portada INT AUTO_INCREMENT,
 	foto LONGBLOB,
-	PRIMARY KEY(id_portada)
+	PRIMARY KEY(id_usuario)
 );
  
-drop table portadas;
  select * from pelicula;
 select * from portadas;
  Select count(*) from pelicula where idPelicula like '%6%';

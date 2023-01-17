@@ -1,9 +1,7 @@
 package Front.Peliculas;
 
 import Logic.Interaccion;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -11,7 +9,7 @@ import javax.swing.JOptionPane;
 /*
  * @autores Cinefilos de EDA
  */
-public class JFEstudianteInsentar extends javax.swing.JFrame {
+public class JFPeliculasInsentar extends javax.swing.JFrame {
 
     private int x;
     private int y;
@@ -20,11 +18,10 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
     private String tablaInsertar = "pelicula";//tabla a la q se hace referencia
     String ruta = null;
 
-    public JFEstudianteInsentar() {
+    public JFPeliculasInsentar() {
         initComponents();
         setLocationRelativeTo(this);
         this.jTFNombre.requestFocus();
-
         this.SQL = "Select idPelicula from pelicula order By idpelicula DESC limit 1;";
         int nuevoCod = atributos.busquedaCod(tablaInsertar, SQL, "idPelicula") + 1;
         this.jTFCodigo.setText(nuevoCod + "");
@@ -35,24 +32,24 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         lblimagen = new javax.swing.JLabel();
+        lblurl = new javax.swing.JLabel();
         jLabelTitulo = new javax.swing.JLabel();
-        lblurl = new javax.swing.JTextField();
-        jTFCelular = new javax.swing.JTextField();
-        jLabelCodEstudiante = new javax.swing.JLabel();
+        jLabelCodPelicula = new javax.swing.JLabel();
         jTFCodigo = new javax.swing.JTextField();
         jLabelNombre = new javax.swing.JLabel();
         jTFNombre = new javax.swing.JTextField();
-        jLabelApellido = new javax.swing.JLabel();
-        jTFApellido = new javax.swing.JTextField();
-        jLabelCelular = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabelSector = new javax.swing.JLabel();
-        jTFSector = new javax.swing.JTextField();
-        jLabelFacultad = new javax.swing.JLabel();
-        jTFFacultad = new javax.swing.JTextField();
-        jLabelCorreo = new javax.swing.JLabel();
-        jTFCorreo = new javax.swing.JTextField();
+        jLabelEstreno = new javax.swing.JLabel();
+        jTFEstreno = new javax.swing.JTextField();
+        jLabelIdioma = new javax.swing.JLabel();
+        jTFIdioma = new javax.swing.JTextField();
+        jLabelPuntuacion = new javax.swing.JLabel();
+        jTFPuntuacion = new javax.swing.JTextField();
+        jLabelSinopsis = new javax.swing.JLabel();
+        jTFSinopsis = new javax.swing.JTextField();
+        jLabelGenero = new javax.swing.JLabel();
+        jTFGenero = new javax.swing.JTextField();
         jLabelDirector = new javax.swing.JLabel();
         jTFDirector = new javax.swing.JTextField();
         jBSalirIcon = new javax.swing.JButton();
@@ -62,12 +59,11 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
         jLEncabezado = new javax.swing.JLabel();
         jLCuerpo = new javax.swing.JLabel();
         jLPie = new javax.swing.JLabel();
-        jLCuerpo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Insertar Estudiante");
         setLocationByPlatform(true);
-        setMinimumSize(new java.awt.Dimension(652, 446));
+        setMinimumSize(new java.awt.Dimension(652, 370));
         setUndecorated(true);
         setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -84,89 +80,6 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblimagen.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Portada"));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblimagen, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblimagen, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(280, 30, 370, 340);
-
-        jLabelTitulo.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
-        jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitulo.setText("Insertar Pelicula");
-        getContentPane().add(jLabelTitulo);
-        jLabelTitulo.setBounds(10, 0, 140, 30);
-
-        lblurl.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                lblurlFocusLost(evt);
-            }
-        });
-        getContentPane().add(lblurl);
-        lblurl.setBounds(120, 310, 140, 22);
-
-        jTFCelular.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFCelularKeyTyped(evt);
-            }
-        });
-        getContentPane().add(jTFCelular);
-        jTFCelular.setBounds(90, 150, 170, 22);
-
-        jLabelCodEstudiante.setForeground(new java.awt.Color(127, 0, 0));
-        jLabelCodEstudiante.setText("Código:");
-        getContentPane().add(jLabelCodEstudiante);
-        jLabelCodEstudiante.setBounds(20, 60, 60, 16);
-
-        jTFCodigo.setEditable(false);
-        jTFCodigo.setBackground(new java.awt.Color(255, 255, 255));
-        jTFCodigo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTFCodigoFocusLost(evt);
-            }
-        });
-        jTFCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFCodigoKeyPressed(evt);
-            }
-        });
-        getContentPane().add(jTFCodigo);
-        jTFCodigo.setBounds(90, 60, 170, 22);
-
-        jLabelNombre.setForeground(new java.awt.Color(127, 0, 0));
-        jLabelNombre.setText("Nombre:");
-        getContentPane().add(jLabelNombre);
-        jLabelNombre.setBounds(20, 90, 60, 16);
-        getContentPane().add(jTFNombre);
-        jTFNombre.setBounds(90, 90, 170, 22);
-
-        jLabelApellido.setForeground(new java.awt.Color(127, 0, 0));
-        jLabelApellido.setText("Estreno:");
-        getContentPane().add(jLabelApellido);
-        jLabelApellido.setBounds(20, 120, 70, 16);
-        getContentPane().add(jTFApellido);
-        jTFApellido.setBounds(90, 120, 170, 22);
-
-        jLabelCelular.setForeground(new java.awt.Color(127, 0, 0));
-        jLabelCelular.setText("Idioma:");
-        getContentPane().add(jLabelCelular);
-        jLabelCelular.setBounds(20, 150, 70, 16);
-
         jButton1.setBackground(new java.awt.Color(56, 56, 56));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Insertar Imagen");
@@ -176,48 +89,100 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(20, 300, 95, 40);
 
-        jLabelSector.setForeground(new java.awt.Color(127, 0, 0));
-        jLabelSector.setText("Puntuacion:");
-        getContentPane().add(jLabelSector);
-        jLabelSector.setBounds(20, 180, 70, 16);
-        getContentPane().add(jTFSector);
-        jTFSector.setBounds(90, 180, 170, 22);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblimagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblurl, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(lblurl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
 
-        jLabelFacultad.setForeground(new java.awt.Color(127, 0, 0));
-        jLabelFacultad.setText("Sipnosis:");
-        getContentPane().add(jLabelFacultad);
-        jLabelFacultad.setBounds(20, 210, 70, 16);
-        getContentPane().add(jTFFacultad);
-        jTFFacultad.setBounds(90, 210, 170, 22);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(280, 0, 370, 370);
 
-        jLabelCorreo.setForeground(new java.awt.Color(127, 0, 0));
-        jLabelCorreo.setText("Genero:");
-        getContentPane().add(jLabelCorreo);
-        jLabelCorreo.setBounds(20, 240, 70, 16);
+        jLabelTitulo.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitulo.setText("Insertar Pelicula");
+        getContentPane().add(jLabelTitulo);
+        jLabelTitulo.setBounds(10, 0, 140, 30);
 
-        jTFCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTFCorreoFocusLost(evt);
-            }
-        });
-        getContentPane().add(jTFCorreo);
-        jTFCorreo.setBounds(90, 240, 170, 22);
+        jLabelCodPelicula.setForeground(new java.awt.Color(127, 0, 0));
+        jLabelCodPelicula.setText("Código:");
+        getContentPane().add(jLabelCodPelicula);
+        jLabelCodPelicula.setBounds(20, 40, 60, 16);
+
+        jTFCodigo.setEditable(false);
+        jTFCodigo.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jTFCodigo);
+        jTFCodigo.setBounds(90, 40, 170, 22);
+
+        jLabelNombre.setForeground(new java.awt.Color(127, 0, 0));
+        jLabelNombre.setText("Nombre:");
+        getContentPane().add(jLabelNombre);
+        jLabelNombre.setBounds(20, 70, 60, 16);
+        getContentPane().add(jTFNombre);
+        jTFNombre.setBounds(90, 70, 170, 22);
+
+        jLabelEstreno.setForeground(new java.awt.Color(127, 0, 0));
+        jLabelEstreno.setText("Estreno:");
+        getContentPane().add(jLabelEstreno);
+        jLabelEstreno.setBounds(20, 100, 70, 16);
+        getContentPane().add(jTFEstreno);
+        jTFEstreno.setBounds(90, 100, 170, 22);
+
+        jLabelIdioma.setForeground(new java.awt.Color(127, 0, 0));
+        jLabelIdioma.setText("Idioma:");
+        getContentPane().add(jLabelIdioma);
+        jLabelIdioma.setBounds(20, 130, 70, 16);
+        getContentPane().add(jTFIdioma);
+        jTFIdioma.setBounds(90, 130, 170, 22);
+
+        jLabelPuntuacion.setForeground(new java.awt.Color(127, 0, 0));
+        jLabelPuntuacion.setText("Puntuacion:");
+        getContentPane().add(jLabelPuntuacion);
+        jLabelPuntuacion.setBounds(20, 160, 70, 16);
+        getContentPane().add(jTFPuntuacion);
+        jTFPuntuacion.setBounds(90, 160, 170, 22);
+
+        jLabelSinopsis.setForeground(new java.awt.Color(127, 0, 0));
+        jLabelSinopsis.setText("Sipnosis:");
+        getContentPane().add(jLabelSinopsis);
+        jLabelSinopsis.setBounds(20, 190, 70, 16);
+        getContentPane().add(jTFSinopsis);
+        jTFSinopsis.setBounds(90, 190, 170, 22);
+
+        jLabelGenero.setForeground(new java.awt.Color(127, 0, 0));
+        jLabelGenero.setText("Genero:");
+        getContentPane().add(jLabelGenero);
+        jLabelGenero.setBounds(20, 220, 70, 16);
+        getContentPane().add(jTFGenero);
+        jTFGenero.setBounds(90, 220, 170, 22);
 
         jLabelDirector.setForeground(new java.awt.Color(127, 0, 0));
         jLabelDirector.setText("Director:");
         getContentPane().add(jLabelDirector);
-        jLabelDirector.setBounds(20, 270, 70, 16);
-
-        jTFDirector.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTFDirectorFocusLost(evt);
-            }
-        });
+        jLabelDirector.setBounds(20, 250, 70, 16);
         getContentPane().add(jTFDirector);
-        jTFDirector.setBounds(90, 270, 170, 22);
+        jTFDirector.setBounds(90, 250, 170, 22);
 
         jBSalirIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salir icon prev 32.png"))); // NOI18N
         jBSalirIcon.setToolTipText("salir");
@@ -236,7 +201,7 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jBSalirIcon);
-        jBSalirIcon.setBounds(600, 0, 52, 30);
+        jBSalirIcon.setBounds(230, 0, 52, 30);
 
         jBMax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/minimizar icon prev 32.png"))); // NOI18N
         jBMax.setToolTipText("minimizar");
@@ -255,7 +220,7 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jBMax);
-        jBMax.setBounds(550, 0, 52, 30);
+        jBMax.setBounds(180, 0, 52, 30);
 
         jBRegistrar.setBackground(new java.awt.Color(56, 56, 56));
         jBRegistrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -279,7 +244,7 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jBRegistrar);
-        jBRegistrar.setBounds(330, 390, 110, 40);
+        jBRegistrar.setBounds(150, 310, 110, 40);
 
         jBCancelar.setBackground(new java.awt.Color(56, 56, 56));
         jBCancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -297,34 +262,23 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
                 jBCancelarMouseExited(evt);
             }
         });
-        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCancelarActionPerformed(evt);
-            }
-        });
         getContentPane().add(jBCancelar);
-        jBCancelar.setBounds(200, 390, 110, 40);
+        jBCancelar.setBounds(20, 310, 110, 40);
 
         jLEncabezado.setBackground(new java.awt.Color(0, 0, 0));
         jLEncabezado.setOpaque(true);
         getContentPane().add(jLEncabezado);
-        jLEncabezado.setBounds(0, 0, 660, 30);
+        jLEncabezado.setBounds(0, 0, 280, 30);
 
         jLCuerpo.setBackground(new java.awt.Color(255, 255, 255));
-        jLCuerpo.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Datos Pelicula"));
         jLCuerpo.setOpaque(true);
         getContentPane().add(jLCuerpo);
-        jLCuerpo.setBounds(10, 40, 260, 320);
+        jLCuerpo.setBounds(0, 30, 280, 260);
 
         jLPie.setBackground(new java.awt.Color(0, 0, 0));
         jLPie.setOpaque(true);
         getContentPane().add(jLPie);
-        jLPie.setBounds(0, 370, 660, 80);
-
-        jLCuerpo1.setBackground(new java.awt.Color(255, 255, 255));
-        jLCuerpo1.setOpaque(true);
-        getContentPane().add(jLCuerpo1);
-        jLCuerpo1.setBounds(-10, 30, 310, 350);
+        jLPie.setBounds(0, 290, 280, 80);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -339,22 +293,6 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
         this.x = evt.getX();
         this.y = evt.getY();
     }//GEN-LAST:event_formMousePressed
-
-    private void jTFCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFCodigoKeyPressed
-
-    }//GEN-LAST:event_jTFCodigoKeyPressed
-
-    private void jTFCelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFCelularKeyTyped
-
-    }//GEN-LAST:event_jTFCelularKeyTyped
-
-    private void jTFCorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFCorreoFocusLost
-
-    }//GEN-LAST:event_jTFCorreoFocusLost
-
-    private void jTFCodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFCodigoFocusLost
-
-    }//GEN-LAST:event_jTFCodigoFocusLost
 
     private void jBSalirIconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirIconActionPerformed
         this.setVisible(false);
@@ -372,10 +310,6 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
         this.jBCancelar.setText("cancelar");
     }//GEN-LAST:event_jBCancelarMouseExited
 
-    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
-
-    }//GEN-LAST:event_jBCancelarActionPerformed
-
     private void jBRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBRegistrarMouseEntered
         this.jBRegistrar.setText("REGISTRAR");
     }//GEN-LAST:event_jBRegistrarMouseEntered
@@ -385,26 +319,27 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
     }//GEN-LAST:event_jBRegistrarMouseExited
 
     private void jBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistrarActionPerformed
-        
+        //ImagenPosters mimagen = new ImagenPosters();
 
         String nombre = jTFNombre.getText();
-        String apellido = jTFApellido.getText();
-        String sector = jTFSector.getText();
-        String facultad = jTFFacultad.getText();
-        String correo = jTFCorreo.getText();
+        String apellido = jTFEstreno.getText();
+        String sector = jTFPuntuacion.getText();
+        String facultad = jTFSinopsis.getText();
+        String correo = jTFGenero.getText();
         if (this.jTFCodigo.getText().isEmpty() || nombre.isEmpty() || apellido.isEmpty()
-                || this.jTFCelular.getText().isEmpty() || sector.isEmpty() || facultad.isEmpty() || correo.isEmpty()) {
+                || this.jTFIdioma.getText().isEmpty() || sector.isEmpty() || facultad.isEmpty() || correo.isEmpty()) {
 
         } else {
 
             int codigoEst = Integer.parseInt(jTFCodigo.getText());
-            String celular = jTFCelular.getText();
+            String celular = jTFIdioma.getText();
             String director = jTFDirector.getText();
 
             //datosBasura
             int codigoLibro = 0;
             int stock = 0;
             int disponibilidad = 0;
+            //this.SQL="INSERT INTO pelicula values(?,?,?,?,?,?,?,?,?)";
             this.SQL = "INSERT INTO pelicula values(?,?,?,?,?,?,?,?,?)";
             if (atributos.insertarTabla(SQL, tablaInsertar, codigoEst, nombre, apellido, celular, sector, facultad, correo,
                     codigoLibro, null, null, null, null, stock, disponibilidad, null, null, director)) {
@@ -416,16 +351,12 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
         }
 
         String url = lblurl.getText();
-        if (url.trim().length() != 0) {
-            atributos.guardarImagen(ruta);
+        if (url.trim().length() != 0 && nombre.trim().length() != 0) {
+            atributos.guardarImagen(ruta, nombre);
         } else {
             JOptionPane.showMessageDialog(null, "No debe dejar los campos vacios: Nombre e Imagen");
         }
     }//GEN-LAST:event_jBRegistrarActionPerformed
-
-    private void jTFDirectorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDirectorFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFDirectorFocusLost
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFileChooser j = new JFileChooser();
@@ -439,20 +370,17 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
             this.lblurl.setText(ruta);
         }
 
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void lblurlFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblurlFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblurlFocusLost
-
     public void limpiarCampos() {
-        this.jTFApellido.setText("");
-        this.jTFCelular.setText("");
+        this.jTFEstreno.setText("");
+        this.jTFIdioma.setText("");
         this.jTFCodigo.setText("");
-        this.jTFCorreo.setText("");
-        this.jTFFacultad.setText("");
+        this.jTFGenero.setText("");
+        this.jTFSinopsis.setText("");
         this.jTFNombre.setText("");
-        this.jTFSector.setText("");
+        this.jTFPuntuacion.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -462,28 +390,27 @@ public class JFEstudianteInsentar extends javax.swing.JFrame {
     private javax.swing.JButton jBSalirIcon;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLCuerpo;
-    private javax.swing.JLabel jLCuerpo1;
     private javax.swing.JLabel jLEncabezado;
     private javax.swing.JLabel jLPie;
-    private javax.swing.JLabel jLabelApellido;
-    private javax.swing.JLabel jLabelCelular;
-    private javax.swing.JLabel jLabelCodEstudiante;
-    private javax.swing.JLabel jLabelCorreo;
+    private javax.swing.JLabel jLabelCodPelicula;
     private javax.swing.JLabel jLabelDirector;
-    private javax.swing.JLabel jLabelFacultad;
+    private javax.swing.JLabel jLabelEstreno;
+    private javax.swing.JLabel jLabelGenero;
+    private javax.swing.JLabel jLabelIdioma;
     private javax.swing.JLabel jLabelNombre;
-    private javax.swing.JLabel jLabelSector;
+    private javax.swing.JLabel jLabelPuntuacion;
+    private javax.swing.JLabel jLabelSinopsis;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTFApellido;
-    private javax.swing.JTextField jTFCelular;
     private javax.swing.JTextField jTFCodigo;
-    private javax.swing.JTextField jTFCorreo;
     private javax.swing.JTextField jTFDirector;
-    private javax.swing.JTextField jTFFacultad;
+    private javax.swing.JTextField jTFEstreno;
+    private javax.swing.JTextField jTFGenero;
+    private javax.swing.JTextField jTFIdioma;
     private javax.swing.JTextField jTFNombre;
-    private javax.swing.JTextField jTFSector;
+    private javax.swing.JTextField jTFPuntuacion;
+    private javax.swing.JTextField jTFSinopsis;
     private javax.swing.JLabel lblimagen;
-    private javax.swing.JTextField lblurl;
+    private javax.swing.JLabel lblurl;
     // End of variables declaration//GEN-END:variables
 }
