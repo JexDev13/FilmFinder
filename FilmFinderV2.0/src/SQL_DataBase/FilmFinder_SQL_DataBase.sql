@@ -1,22 +1,21 @@
-drop database if exists proyecto1;
-create database proyecto1;
-use proyecto1;
-create table  pelicula
-(
-	idPelicula int  auto_increment not null,
-        nombrePelicula varchar(2000)  not null,
-	Estreno varchar(4)  not null,
-        idioma varchar(50) not null,
-        PuntuacionSobre5 varchar(20) not null,
-        sinopsis varchar (2000) not null  ,
-        genero varchar(2000) not null,
-        directo  varchar(100) not null,
-	Disponibilidad varchar(20) not null,
-        
-        primary key (idPelicula)
-  
-);
+drop database if exists filmfinder;
 
+create database filmfinder;
+
+use filmfinder;
+
+CREATE TABLE pelicula (
+    idPelicula INT AUTO_INCREMENT NOT NULL,
+    nombrePelicula VARCHAR(2000) NOT NULL,
+    Estreno VARCHAR(4) NOT NULL,
+    idioma VARCHAR(50) NOT NULL,
+    PuntuacionSobre5 VARCHAR(20) NOT NULL,
+    sinopsis VARCHAR(2000) NOT NULL,
+    genero VARCHAR(2000) NOT NULL,
+    directo VARCHAR(100) NOT NULL,
+    Disponibilidad VARCHAR(20) NOT NULL,
+    PRIMARY KEY (idPelicula)
+);
 
 create table  prestamoPelicula
 (

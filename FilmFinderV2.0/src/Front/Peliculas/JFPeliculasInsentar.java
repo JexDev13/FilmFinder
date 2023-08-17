@@ -431,15 +431,8 @@ public class JFPeliculasInsentar extends javax.swing.JFrame {
 
         if (ap == JFileChooser.APPROVE_OPTION) {
             ruta = j.getSelectedFile().getAbsolutePath();
-
-            //ImageIcon icono = new ImageIcon(ruta.getScaledInstance(300, 350, Image.SCALE_DEFAULT));'
-            /*ImageIcon img = new ImageIcon(ruta);
-            this.lblimagen.setIcon(img);*/
-            ImageIcon imagen = new ImageIcon(ruta);
-            ImageIcon imagenRed = new ImageIcon(imagen.getImage().getScaledInstance(200, 281, Image.SCALE_DEFAULT));
-            this.lblimagen.setIcon(imagenRed);
-            /*this.lblimagen.setIcon(icon);
-            this.lblurl.setText(ruta);*/
+            this.lblimagen.setIcon(new ImageIcon(ruta));
+            this.lblurl.setText(ruta);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

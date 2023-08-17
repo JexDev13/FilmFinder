@@ -686,6 +686,7 @@ public class JFPeliculaActualizar extends javax.swing.JFrame {
             }
             if (jChBPortada.isSelected() && !lblurl.getText().isEmpty()) {
                 String url = lblurl.getText();
+                //atributos.guardarImagen(ruta);
                 atributos.actualizarImagen(ruta, parametroBusqueda);
                 this.setVisible(false);
                 limpiarCampos();

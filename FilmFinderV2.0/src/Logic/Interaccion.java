@@ -319,8 +319,8 @@ public class Interaccion {
     public ResultSet visualizar() {
         ResultSet rs = null;
         try {
-            PreparedStatement ps = cn.prepareStatement("SELECT idPelicula, nombrePelicula, foto FROM pelicula INNER JOIN portadas ON idPelicula = id_portada;");
-            //PreparedStatement ps = cn.prepareStatement("SELECT * FROM portadas;");
+            //PreparedStatement ps = cn.prepareStatement("SELECT idPelicula, nombrePelicula, foto FROM pelicula INNER JOIN portadas ON idPelicula = id_portada;");
+            PreparedStatement ps = cn.prepareStatement("SELECT * FROM portadas;");
             rs = ps.executeQuery();
         } catch (Exception ex) {
             System.out.println("Error de consulta");
@@ -377,7 +377,7 @@ public class Interaccion {
             while (rs.next()) {
                 Object[] fila = new Object[1];
 
-                Blob blob = rs.getBlob(3);
+                Blob blob = rs.getBlob(2);
 
                 if (blob != null) {
                     try {
